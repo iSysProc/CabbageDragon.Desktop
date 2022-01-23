@@ -9,7 +9,7 @@
         "esModuleInterop": true,
         "baseUrl": "./src",
         "forceConsistentCasingInFileNames": true,
-        //"noEmit": true
+        "noEmit": true
     },
     "exclude": [
         "./dist/**/*"

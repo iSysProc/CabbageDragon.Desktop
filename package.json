@@ -5,7 +5,15 @@
     "main": "dist/electron.js",
     "scripts": {
         "build": "webpack --config ./webpack.config.js",
-        "start": "npm run build && electron ./dist/electron.js"
+        "start": "npm run build && electron ./dist/electron.js",
+        "lint": "eslint --ext .js,.jsx,.ts,.tsx src/",
+        "test": "jest --passWithNoTests"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "npm test && yarn lint",
+            "pre-push": "npm test && yarn lint"
+        }
     },
     "repository": {
         "type": "git",
@@ -24,9 +32,33 @@
         "html-webpack-plugin": "^5.5.0",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
-        "ts-loader": "^9.2.6",
         "typescript": "^4.5.5",
         "webpack": "^5.67.0",
-        "webpack-cli": "^4.9.1"
+        "webpack-cli": "^4.9.1",
+        "@babel/core": "^7.16.12",
+        "@babel/preset-env": "^7.16.11",
+        "@babel/preset-react": "^7.16.7",
+        "@babel/preset-typescript": "^7.16.7",
+        "@emotion/babel-plugin": "^11.7.2",
+        "@emotion/react": "^11.7.1",
+        "@emotion/styled": "^11.6.0",
+        "@testing-library/jest-dom": "^5.16.1",
+        "@testing-library/react": "^12.1.2",
+        "@types/jest": "^27.4.0",
+        "@types/lodash": "^4.14.178",
+        "@typescript-eslint/eslint-plugin": "^5.10.0",
+        "@typescript-eslint/parser": "^5.10.0",
+        "axios": "^0.25.0",
+        "babel-jest": "^27.4.6",
+        "babel-loader": "^8.2.3",
+        "babel-plugin-module-resolver": "^4.1.0",
+        "clean-webpack-plugin": "^4.0.0",
+        "eslint": "^8.7.0",
+        "eslint-plugin-react": "^7.28.0",
+        "eslint-plugin-react-hooks": "^4.3.0",
+        "eslint-plugin-typescript": "^0.14.0",
+        "husky": "^7.0.4",
+        "jest": "^27.4.7",
+        "lodash": "^4.17.21"
     }
 }
